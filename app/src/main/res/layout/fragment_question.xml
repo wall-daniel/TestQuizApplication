@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent"
         android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-            android:id="@+id/editText"
+            android:id="@+id/question_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:text="This is a fragment"
-            android:textSize="32dp"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-            android:text="A"
-            android:textSize="72dp"
+
+            android:textSize="72sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/button_A" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/button_C" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/button_B" app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintEnd_toStartOf="@+id/button_B" app:layout_constraintTop_toBottomOf="@+id/question_text"
             android:layout_marginEnd="8dp"/>
     <Button
             android:text="B"
-            android:textSize="72dp"
+            android:textSize="72sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/button_B" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/button_D" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toEndOf="@+id/button_A" app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintStart_toEndOf="@+id/button_A" app:layout_constraintTop_toBottomOf="@+id/question_text"
             android:layout_marginStart="8dp"/>
 
     <Button
             android:text="C"
-            android:textSize="72dp"
+            android:textSize="72sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/button_C" android:layout_marginBottom="8dp"
@@ -49,7 +47,7 @@
 
     <Button
             android:text="D"
-            android:textSize="72dp"
+            android:textSize="72sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/button_D" android:layout_marginBottom="8dp"

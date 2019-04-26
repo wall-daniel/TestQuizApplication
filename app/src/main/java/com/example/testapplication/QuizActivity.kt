@@ -1,30 +1,18 @@
 package com.example.testapplication
 
 import android.os.Bundle
-import android.os.Process
-import android.support.constraint.ConstraintLayout
-import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log
-import android.view.View
-import android.widget.Button
+import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
-import kotlin.random.Random
+import java.util.concurrent.ThreadLocalRandom
 
 class QuizActivity : AppCompatActivity(), QuestionFragment.OnButtonSelectedListener, AnswerFragment.OnClickLinearLayout {
-
-
 
     lateinit var constraintLayout: LinearLayout
     lateinit var questionFragment: QuestionFragment
     lateinit var answerFragment: AnswerFragment
     lateinit var fragmentManager: FragmentManager
-    private var switched = true
-
-    private lateinit var random: Random
-
-    private var questions: List<Question>? = null
+    private var switched = false
 
     private var answerButtonId: Int = R.id.button_A
 
@@ -39,13 +27,13 @@ class QuizActivity : AppCompatActivity(), QuestionFragment.OnButtonSelectedListe
         questionFragment.callback = this
         answerFragment = AnswerFragment()
         answerFragment.callback = this
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.constraint_layout, questionFragment)
-        fragmentTransaction.commit()
+
+        // Set the question on display fragment of question
+        switchFragmentView()
     }
 
     fun changeQuestions() {
-        // TODO
+        questionFragment.setQuestion("This is the question", ThreadLocalRandom.current().nextInt().toString(), "B", "C", "D")
     }
 
     fun switchFragmentView() {
@@ -68,8 +56,11 @@ class QuizActivity : AppCompatActivity(), QuestionFragment.OnButtonSelectedListe
     }
 
     override fun switchQuestion() {
-        // TODO: change question
-
         switchFragmentView()
+
+        changeQuestions()
+//        Handler().postDelayed({
+//            changeQuestions()
+//        }, 1)
     }
 }

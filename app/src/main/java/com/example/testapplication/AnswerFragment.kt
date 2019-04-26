@@ -9,23 +9,20 @@ import android.widget.LinearLayout
 
 class AnswerFragment: Fragment() {
 
-    lateinit var callback: OnClickLinearLayout
-
-    fun setOnClickLinearLayout(callback: OnClickLinearLayout) {
-        this.callback = callback
-    }
-
-    interface OnClickLinearLayout {
-        fun switchQuestion()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var fragmentView: View = inflater.inflate(R.layout.fragment_answer, container, false)
+        val fragmentView: View = inflater.inflate(R.layout.fragment_answer, container, false)
 
         fragmentView.findViewById<LinearLayout>(R.id.answer_linear_layout).setOnClickListener {
             callback.switchQuestion()
         }
 
         return fragmentView
+    }
+
+    lateinit var callback: OnClickLinearLayout
+
+    interface OnClickLinearLayout {
+        fun switchQuestion()
     }
 }
